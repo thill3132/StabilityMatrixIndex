@@ -535,6 +535,18 @@ public partial class MainSettingsViewModel : PageViewModelBase
     }
 
     [RelayCommand]
+    private async Task ModelIndexRefresh()
+    {
+        await notificationService.TryAsync(Task.Run(modelIndexService.RefreshIndex));
+
+        notificationService.Show(
+            "Model index refreshed",
+            "The model index has been refreshed.",
+            NotificationType.Success
+        );
+    }
+
+    [RelayCommand]
     private void NavigateToSubPage(Type viewModelType)
     {
         Dispatcher.UIThread.Post(

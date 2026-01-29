@@ -114,7 +114,7 @@
             </sg:SpacedGrid>
 
             <!--  Checkpoints Manager Options  -->
-            <Grid RowDefinitions="Auto,*,Auto,Auto">
+            <Grid RowDefinitions="Auto,*,Auto,Auto,Auto">
                 <TextBlock
                     Margin="0,0,0,8"
                     FontWeight="Medium"
@@ -152,6 +152,16 @@
                     IconSource="Refresh">
                     <ui:SettingsExpander.Footer>
                         <Button Command="{Binding ResetCheckpointCache}" Content="{x:Static lang:Resources.Label_ResetCheckpointsCache}" />
+                    </ui:SettingsExpander.Footer>
+                </ui:SettingsExpander>
+                <ui:SettingsExpander
+                    Grid.Row="4"
+                    Margin="8,0"
+                    Description="Refresh the local model index manually."
+                    Header="Model Index Refresh"
+                    IconSource="Refresh">
+                    <ui:SettingsExpander.Footer>
+                        <Button Command="{Binding ModelIndexRefreshCommand}" Content="Model Index Refresh" />
                     </ui:SettingsExpander.Footer>
                 </ui:SettingsExpander>
             </Grid>

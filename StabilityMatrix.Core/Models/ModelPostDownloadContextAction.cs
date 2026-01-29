@@ -11,7 +11,6 @@ public class ModelPostDownloadContextAction : IContextAction
     [SuppressMessage("Performance", "CA1822:Mark members as static")]
     public void Invoke(IModelIndexService modelIndexService)
     {
-        // Request reindex
-        modelIndexService.BackgroundRefreshIndex();
+        _ = modelIndexService;
     }
 }
