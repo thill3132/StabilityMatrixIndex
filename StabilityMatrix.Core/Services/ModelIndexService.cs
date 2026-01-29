@@ -76,10 +76,8 @@ public partial class ModelIndexService : IModelIndexService
                         .LocalModelFiles.EnsureIndexAsync(m => m.SharedFolderType)
                         .ConfigureAwait(false);
 
-                    // Load models first from db, then do index refresh
+                    // Load models first from db
                     await EnsureLoadedAsync().ConfigureAwait(false);
-
-                    await RefreshIndex().ConfigureAwait(false);
                 })
                 .SafeFireAndForget(ex =>
                 {
@@ -650,11 +648,7 @@ public partial class ModelIndexService : IModelIndexService
     /// <inheritdoc />
     public void BackgroundRefreshIndex()
     {
-        Task.Run(async () => await RefreshIndex().ConfigureAwait(false))
-            .SafeFireAndForget(ex =>
-            {
-                logger.LogError(ex, "Error in background model indexing");
-            });
+        logger.LogTrace("Background model index refresh is disabled.");
     }
 
     /// <inheritdoc />

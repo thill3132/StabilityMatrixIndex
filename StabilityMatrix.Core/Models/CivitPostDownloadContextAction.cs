@@ -31,8 +31,7 @@ public class CivitPostDownloadContextAction : IContextAction
         }
 
         Debug.WriteLine($"Adding {result} to installed models.");
-
-        // Also request reindex
-        modelIndexService.BackgroundRefreshIndex();
+        _ = settingsManager;
+        _ = modelIndexService;
     }
 }

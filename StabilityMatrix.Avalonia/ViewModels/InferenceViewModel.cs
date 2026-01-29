@@ -242,8 +242,6 @@ public partial class InferenceViewModel : PageViewModelBase, IAsyncDisposable
     public override void OnLoaded()
     {
         base.OnLoaded();
-
-        modelIndexService.BackgroundRefreshIndex();
     }
 
     protected override async Task OnInitialLoadedAsync()
