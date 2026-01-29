@@ -57,7 +57,7 @@ public partial class ModelIndexService : IModelIndexService
     [AutoPostConstruct]
     private void Initialize()
     {
-        // Start background index when library dir is set
+        // Load model index when library dir is set
         settingsManager.RegisterOnLibraryDirSet(_ =>
         {
             // Skip if already loaded
